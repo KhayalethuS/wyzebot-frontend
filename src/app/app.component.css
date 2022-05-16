@@ -1,0 +1,13 @@
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logo{
+  text-align:center;
+  margin-top: 60px;
+}
+
+table {
+  table-layout: fixed;
+}
