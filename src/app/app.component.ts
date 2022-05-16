@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { environment } from '../environments/environment';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -20,17 +21,10 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {}
 
   async getCharacters() {
-    this.characters = [
-      {
-          "_id": "62829c0a7f3a95470dd62c79",
-          "name": "Mholo",
-          "image": "url",
-          "powers": [
-              "Dance",
-              "run",
-              "talk"
-          ]
-      }]
+    this.http.get(`${environment.http}/list-characters`)
+    .subscribe((data) => {
+      this.characters = data;
+    });
   }
 
 }
