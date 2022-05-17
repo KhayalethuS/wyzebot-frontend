@@ -11,3 +11,7 @@
 table {
   table-layout: fixed;
 }
+
+.sortable tr {
+  cursor: pointer;
+}

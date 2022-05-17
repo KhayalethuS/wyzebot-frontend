@@ -1,36 +1,41 @@
 <div class="container">
 
-  <div class="logo">
-    <img src="https://robohash.org/Wyzit.png?set=set1" height="80px" />
-    <h1>Welcome To Our Wyzebot Characters!</h1>
-  </div>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-6"></div>
-    <div class="col-4"></div>
-    <div class="col-2">
-      <button type="button" class="btn btn-primary float-right">Add</button>
+  <div class="container mt-5">
+    <div class="logo">
+      <img src="https://robohash.org/Wyzit.png?set=set1" height="80px" />
+      <h1>Welcome To Our Wyzebot Characters!</h1>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <table class="table table-hover table-responsive table-sm">
+    <br>
+    <div class="d-flex flex-row-reverse bd-highlight">
+      <button class="btn btn-primary" (click)="openModal()">Add</button>
+    </div>
+    <br>
+    <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">ID</th>
+          <th scope="col">#Id</th>
           <th scope="col">Name</th>
-          <th scope="col">Actions</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let character of characters">
-          <td>{{character._id}}</td>
-          <td>{{character.name}}</td>
-          <td>{{character.desc}}</td>
-         </tr>
+          <td>{{ character._id }}</td>
+          <td>{{ character.name }}</td>
+          <td>
+            <!-- <span class="edit btn-danger btn-sm btn" (click)="deleteCharacter(character._id)"
+              >Delete</span
+            > -->
+            &nbsp;
+            <span
+              class="edit btn-success btn-sm btn"
+              routerLink="/edit/{{ character._id }}"
+              >Edit</span
+            >
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
-
 
 </div>
