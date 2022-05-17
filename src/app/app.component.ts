@@ -11,6 +11,7 @@ import { BasicComponent } from './components/modal/basic/basic.component';
 export class AppComponent implements OnInit {
 
   characters: any;
+  isBusy = false;
 
   constructor(public crudService: CrudService, private modalService: NgbModal) { }
 
@@ -19,8 +20,12 @@ export class AppComponent implements OnInit {
   }
 
   getCharacters() {
+    this.isBusy = true;
     return this.crudService.getCharacters().subscribe((res: {}) => {
-      this.characters = res;
+      setTimeout(() =>{
+        this.characters = res;
+        this.isBusy = false
+      }, 5000);
     });
   }
 

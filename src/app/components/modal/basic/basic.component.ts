@@ -14,6 +14,8 @@ export class BasicComponent implements OnInit {
   userForm: FormGroup;
   @Output() emitData = new EventEmitter();
 
+  isBusy = false;
+
   constructor(
     public activeModal: NgbActiveModal,
     public formBuilder: FormBuilder,
@@ -35,8 +37,13 @@ export class BasicComponent implements OnInit {
 
   onSubmit(){
 
+    this.isBusy = true
     return this.crudService.addCharacter(this.userForm.value).subscribe((res: {}) => {
-      this.emitData.next('Done saving');
+
+      setTimeout(() =>{
+        this.isBusy = false
+        this.emitData.next('Done saving');
+      }, 5000);
     });
   }
 

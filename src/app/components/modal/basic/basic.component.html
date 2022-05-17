@@ -5,7 +5,12 @@
   </button>
 </div>
 <div class="modal-body">
-  <!-- <h2 class="mb-5 text-center">Angular Form Validation Example</h2> -->
+
+<div *ngIf="isBusy" class="text-center">
+  <div class="spinner-border" role="status">
+  </div>
+  <span class="sr-only">Loading...</span>
+</div>
 
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
 
