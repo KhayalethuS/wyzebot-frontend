@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateCharacterComponent } from './create-character.component';
+import { CharactersViewComponent } from './characters-view.component';
 
-describe('CreateCharacterComponent', () => {
-  let component: CreateCharacterComponent;
-  let fixture: ComponentFixture<CreateCharacterComponent>;
+describe('CharactersViewComponent', () => {
+  let component: CharactersViewComponent;
+  let fixture: ComponentFixture<CharactersViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateCharacterComponent ]
+      declarations: [ CharactersViewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateCharacterComponent);
+    fixture = TestBed.createComponent(CharactersViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,49 @@
+<div class="container">
+
+  <div class="container mt-5">
+    <div *ngIf="character" class="logo">
+      <img src="https://robohash.org/{{character.image}}.png?set=set1" height="80px" />
+    </div>
+    <br>
+    <br>
+    <div *ngIf="isBusy" class="text-center">
+      <div class="spinner-border" role="status">
+      </div>
+      <span class="sr-only">Loading...</span>
+    </div>
+
+    <div *ngIf="character">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+
+        <div class="form-group">
+          <label>Name</label>
+          <input [(ngModel)]="character.name" type="text" class="form-control" formControlName="name">
+          <div *ngIf="getControl['name'].touched && getControl['name'].invalid" class="text-danger">
+            <!-- <div *ngIf="getControl['name'].errors['required']">Field is required.</div> -->
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label>Image Name</label>
+          <input [(ngModel)]="character.image" type="text" class="form-control" formControlName="image">
+          <div *ngIf="getControl['image'].touched && getControl['image'].invalid" class="text-danger">
+            <!-- <div *ngIf="getControl['image'].errors['required']">Field is required.</div> -->
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label>Powers</label>
+          <input [(ngModel)]="character.powers" type="text" class="form-control" formControlName="powers">
+          <div *ngIf="getControl['powers'].touched && getControl['powers'].invalid" class="text-danger">
+            <!-- <div *ngIf="getControl['powers'].errors['required']">Field is required.</div> -->
+          </div>
+        </div>
+        <br>
+        <br>
+        <button class="btn btn-danger btn-block" type="submit">Update</button>
+      </form>
+    </div>
+
+  </div>
+
+</div>

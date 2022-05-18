@@ -31,6 +31,12 @@ export class CrudService {
       .pipe(retry(1), catchError(this.processError));
   }
 
+  getCharacter(id:string): Observable<Character> {
+    return this.httpClient
+      .get<Character>(environment.http + '/characters/'+id)
+      .pipe(retry(1), catchError(this.processError));
+  }
+
   addCharacter(data: any): Observable<Character> {
     return this.httpClient
       .post<Character>(
@@ -41,7 +47,7 @@ export class CrudService {
       .pipe(retry(1), catchError(this.processError));
   }
 
-  updateCharacter(id: any, data: any): Observable<Character> {
+  updateCharacter(data: any): Observable<Character> {
     return this.httpClient
       .put<Character>(
         environment.http + '/characters',
